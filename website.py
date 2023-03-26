@@ -5,14 +5,17 @@ import Scripts.audio_to_text as audio_to_text
 import Scripts.summary
 import Scripts.text_to_speech
 import plotly.graph_objects as go
-
+from playsound import playsound
 import requests
 from PIL import Image
-#import json
+import json
 from streamlit_lottie import st_lottie
+
+#audio_file = "intro.mp3"
 
 st.set_page_config(page_title="Clear Speak")
 
+#playsound(audio_file)
 st.write("<div style='text-align: center'><h1>Clear Speak</h1></div>", unsafe_allow_html=True)
 
 col1_main,col2_main = st.columns(2)
@@ -23,12 +26,16 @@ with col1_main:
     
     #st.write(summary.summary)
     col1, col2 = st.columns(2)
-    
+    flag= False
     with col1:
         st.button("Start recording")
     with col2:
         if st.button("Stop recording"):
-            st.audio("speech.wav")
+            flag= True
+    
+    if(flag):
+        st.audio("speech.wav")
+        flag= False
 
 with col2_main:
 
@@ -37,14 +44,29 @@ with col2_main:
         if r.status_code != 200:
             return None
         return r.json()
+    
+    def load_lottiefile(filepath: str):
+        with open(filepath, "r") as f:
+            return json.load(f)
 
     lottie_url = "https://assets8.lottiefiles.com/packages/lf20_1pjemuh2.json"
-    lottie = load_lottieurl(lottie_url)
+    lottie_json= r"C:\Users\siddh\Desktop\clear-speak\lf20_1pjemuh2.json"
+    lottie = load_lottiefile(lottie_json)
 
-    st_lottie(lottie, key="hello")
+    # st_lottie(lottie, key="hello")
+    st_lottie(
+    lottie,
+    speed=1,
+    height=260,
+    width=260,
+    loop=True,
+    key=None,
+)
 
 
-st.write("<div style='text-align: center'><h2>Analytics</h2></div>", unsafe_allow_html=True)
+st.write("<div style='text-align: center'><h2>Analytics 📈</h2></div>", unsafe_allow_html=True)
+
+
 
 col1_anal, col2_anal = st.columns(2)
 
@@ -103,3 +125,15 @@ with col2_anal:
     fig.update_layout(font = {'color': "white", 'family': "Arial"})
 
     st.plotly_chart(fig, use_container_width=True)
+    
+    
+st.sidebar.write("<div style='text-align: center'><h1>Instructions for use: 📖</h1></div>", unsafe_allow_html=True)
+#= Image.open("C:\Users\siddh\Desktop\clear-speak\usermanual.png")
+st.sidebar.write("")
+st.sidebar.write("•	Clear Speak is a platform designed to improve your oration skills.", unsafe_allow_html=True)
+st.sidebar.write("•	To get started, enter your speech script into the provided space.", unsafe_allow_html=True)
+st.sidebar.write("•	Click on the Start Recording button to record your speech when you're ready.", unsafe_allow_html=True)
+st.sidebar.write("•	After recording, click on the Analyze button to receive feedback on your speech delivery.", unsafe_allow_html=True)
+st.sidebar.write("•	We recommend using Clear Speak in a focused and constructive manner.", unsafe_allow_html=True)
+st.sidebar.write("•	Practicing regularly on Clear Speak can enhance your public speaking abilities.", unsafe_allow_html=True)
+st.sidebar.write("•	By using Clear Speak, you can become a more confident, eloquent and effective communicator.", unsafe_allow_html=True)
