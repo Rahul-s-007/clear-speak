@@ -6,3 +6,4 @@ pyaudio
 plotly==5.13.1
 requests==2.28.2
 jsons==1.6.3
+textblob==0.17.1
