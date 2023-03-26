@@ -1,11 +1,13 @@
 import streamlit as st 
-from PIL import Image
-import json
-import record_speech
-import audio_to_text
-import summary
-import text_to_speech
+
+import Scripts.record_speech
+import Scripts.audio_to_text
+import Scripts.summary
+import Scripts.text_to_speech
+
 import requests
+from PIL import Image
+#import json
 from streamlit_lottie import st_lottie
 
 st.set_page_config(page_title="Clear Speak")
