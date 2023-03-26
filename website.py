@@ -50,7 +50,7 @@ with col2_main:
             return json.load(f)
 
     lottie_url = "https://assets8.lottiefiles.com/packages/lf20_1pjemuh2.json"
-    lottie_json= r"C:\Users\siddh\Desktop\clear-speak\lf20_1pjemuh2.json"
+    lottie_json= "lf20_1pjemuh2.json"
     lottie = load_lottiefile(lottie_json)
 
     # st_lottie(lottie, key="hello")
