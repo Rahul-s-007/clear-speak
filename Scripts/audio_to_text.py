@@ -14,3 +14,4 @@ audio_file= open("speech.wav", "rb")
 transcript = openai.Audio.transcribe("whisper-1", audio_file)
 
 print(transcript)
+print(transcript['text'])
