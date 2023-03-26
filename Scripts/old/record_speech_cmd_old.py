@@ -55,5 +55,5 @@ if __name__ == '__main__':
 	record_to_file("speech.wav")
 	# record_to_file(f"{AUDIO_PATH}/speech.wav")
 	
-	print("Result written to output.wav")
+	print("Result written to speech.wav")
 	print('#' * 80)
