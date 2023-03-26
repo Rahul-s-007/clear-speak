@@ -76,6 +76,7 @@ def mili_to_HMS(millis):
     minutes=(millis/(1000*60))%60
     minutes = int(minutes)
     hours=(millis/(1000*60*60))%24
+    hours = int(hours)
     return f"{hours}:{minutes}:{seconds}"
 
 def number_of_pauses():
@@ -101,7 +102,7 @@ def number_of_pauses():
     # Print the start and end time of each long pause
     for pause_index in long_pauses:
         pause_start = nonsilent_parts[pause_index][1]
-        pause_end = nonsilent_parts[pause_index+1][0]
+        pause_end = nonsilent_parts[pause_index][0]
         
         temp = f"Long pause from {mili_to_HMS(pause_start)}ms to {mili_to_HMS(pause_end)}ms"
         print(temp)
