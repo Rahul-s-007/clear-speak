@@ -18,7 +18,7 @@ st.write("<div style='text-align: center'><h1>Clear <em style='text-align: cente
 def app():
     # call all impprts one by one 
     pass
-    
+
 
 def main():
     if os.path.exists(USER_AUDIO):
