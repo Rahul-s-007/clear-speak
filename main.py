@@ -17,6 +17,8 @@ import wave
 st.set_page_config(page_icon=":computer:")
 st.write("<div style='text-align: center'><h1>Clear <em style='text-align: center; color: #5192f5;'>Speak</em></h1></div>", unsafe_allow_html=True)
 
+ai_key = st.secrets["OPENAI_API_KEY"]
+org_key = st.secrets["OPENAI_ORG"]
 # AUDIO_PATH = "Audios"
 
 CHUNK = 1024
@@ -122,7 +124,7 @@ def cal_score(sim_score, num_keywords_used, total_num_keyword):
 def analytics(inp_txt):
     script_keywords = key_words(inp_txt.lower())
     keyword_cnt = len(script_keywords)
-    speech_txt = transcribe.transcript()
+    speech_txt = transcribe.transcript(ai_key,org_key)
     speech_keywords = key_words(speech_txt.lower())
     
     speech_lower = speech_txt.lower()
