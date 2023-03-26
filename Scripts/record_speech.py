@@ -1,6 +1,8 @@
 import pyaudio
 import wave
 
+AUDIO_PATH = "Audios"
+
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 2
@@ -50,8 +52,8 @@ if __name__ == '__main__':
 	print('#' * 80)
 	print("Please speak word(s) into the microphone")
 	print('Press Ctrl+C to stop the recording')
-	
-	record_to_file('output.wav')
+	record_to_file("speech.wav")
+	# record_to_file(f"{AUDIO_PATH}/speech.wav")
 	
 	print("Result written to output.wav")
 	print('#' * 80)
