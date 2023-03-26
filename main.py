@@ -1,14 +1,7 @@
 import streamlit as st 
 
-# import Scripts.rec_audio
-# import Scripts.summary
-# import Scripts.text_to_speech
-
-import os
-from playsound import playsound
 import plotly.graph_objects as go
 import requests
-from PIL import Image
 import json
 from streamlit_lottie import st_lottie
 
