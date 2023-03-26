@@ -50,7 +50,7 @@ st.write("<div style='text-align: center'><h2>Analytics</h2></div>", unsafe_allo
 col1_anal, col2_anal = st.columns(2)
 
 with col1_anal:
-    st.write("Suggestions: ")
+    st.write("<h4>Suggestions: </h4>", unsafe_allow_html=True)
     
     
 with col2_anal:
