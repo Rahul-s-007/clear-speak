@@ -1,7 +1,7 @@
 import streamlit as st 
 
 import Scripts.rec_audio
-import Scripts.audio_to_text
+import Scripts.audio_to_text as audio_to_text
 import Scripts.summary
 import Scripts.text_to_speech
 import plotly.graph_objects as go
@@ -27,9 +27,8 @@ with col1_main:
     with col1:
         st.button("Start recording")
     with col2:
-        st.button("Stop recording")
-
-    st.audio("speech.wav")
+        if st.button("Stop recording"):
+            st.audio("speech.wav")
 
 with col2_main:
 
@@ -52,7 +51,7 @@ col1_anal, col2_anal = st.columns(2)
 with col1_anal:
     st.write("<h4>Suggestions: </h4>", unsafe_allow_html=True)
     
-    
+
 with col2_anal:
     
 
@@ -61,8 +60,6 @@ with col2_anal:
     #     value = 270,
     #     domain = {'x': [0, 1], 'y': [0, 1]},
     #     title = {'text': "Speed"}))
-    
-    import plotly.graph_objects as go
 
     # fig = go.Figure(go.Indicator(
     #     mode = "gauge+number+delta",
@@ -106,5 +103,3 @@ with col2_anal:
     fig.update_layout(font = {'color': "white", 'family': "Arial"})
 
     st.plotly_chart(fig, use_container_width=True)
-
-
