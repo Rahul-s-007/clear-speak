@@ -1,6 +1,6 @@
 import streamlit as st 
 
-import Scripts.record_speech
+import Scripts.rec_audio
 import Scripts.audio_to_text
 import Scripts.summary
 import Scripts.text_to_speech
