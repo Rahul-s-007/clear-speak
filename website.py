@@ -1,9 +1,9 @@
 import streamlit as st 
 
-import Scripts.rec_audio
-import Scripts.audio_to_text as audio_to_text
-import Scripts.summary
-import Scripts.text_to_speech
+# import Scripts.rec_audio
+# import Scripts.audio_to_text as audio_to_text
+# import Scripts.summary
+# import Scripts.text_to_speech
 import plotly.graph_objects as go
 from playsound import playsound
 import requests

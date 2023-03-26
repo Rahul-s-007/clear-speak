@@ -4,13 +4,10 @@ import streamlit as st
 
 st.set_page_config(page_title="Clear Speak")
 
-AUDIO_PATH = "Audios"
-
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 44100
-
 FLAG = True
 
 if "frames" not in st.session_state:
