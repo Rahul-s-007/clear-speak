@@ -206,6 +206,13 @@ st.sidebar.write("•	We recommend using Clear Speak in a focused and constructi
 st.sidebar.write("•	Practicing regularly on Clear Speak can enhance your public speaking abilities.", unsafe_allow_html=True)
 st.sidebar.write("•	By using Clear Speak, you can become a more confident, eloquent and effective communicator.", unsafe_allow_html=True)
 
+st.sidebar.write("<div style='text-align: center'><h1>Getting Started:</h1></div>", unsafe_allow_html=True)
+st.sidebar.write("")
+st.sidebar.write("•	To run the project locally, run the following CLI commands:", unsafe_allow_html=True)
+st.sidebar.write("•	git clone https://github.com/Rahul-s-007/clear-speak.git", unsafe_allow_html=True)
+st.sidebar.write("•	pip install -r requirements.txt", unsafe_allow_html=True)
+st.sidebar.write("•	streamlit run main.py", unsafe_allow_html=True)
+
 col1_main,col2_main = st.columns(2)
 
 with col1_main:
