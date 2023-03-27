@@ -16,7 +16,7 @@ import wave
 
 st.set_page_config(page_icon=":computer:")
 st.write("<div style='text-align: center'><h1>Clear <em style='text-align: center; color: #5192f5;'>Speak</em></h1></div>", unsafe_allow_html=True)
-
+st.write("Only works when on local host with mic, to use clone the repo and run-'streamlit run main.py'")
 ai_key = st.secrets["OPENAI_API_KEY"]
 org_key = st.secrets["OPENAI_ORG"]
 # AUDIO_PATH = "Audios"
@@ -125,6 +125,8 @@ def analytics(inp_txt):
     script_keywords = key_words(inp_txt.lower())
     keyword_cnt = len(script_keywords)
     speech_txt = transcribe.transcript(ai_key,org_key)
+    if(speech_txt.strip()==""):
+        return -1
     speech_keywords = key_words(speech_txt.lower())
     
     speech_lower = speech_txt.lower()
@@ -192,7 +194,7 @@ The percentage of Keywords used = {int((spoken_keywords_cnt/keyword_cnt)*100)} \
         fig.update_layout(font = {'color': "white", 'family': "Arial"})
         st.plotly_chart(fig, use_container_width=True)
         st.session_state["prev_score"].append(score)
-        
+    return 1
 
 st.sidebar.write("<div style='text-align: center'><h1>Instructions for use: 📄</h1></div>", unsafe_allow_html=True)
 st.sidebar.write("")
@@ -241,7 +243,10 @@ if st.button("Analyze"):
         st.write("No Script Entered, Please enter your Script :)")
         print("No Script Entered !!!")
     else:
-        analytics(input_text)
+        val = analytics(input_text)
+        if(val == -1):
+            st.write("No Audio Recorded, Please record your Speech :)")
+        
 
 with col2_main:
     def load_lottieurl(url: str):
