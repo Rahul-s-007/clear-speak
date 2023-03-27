@@ -213,6 +213,21 @@ st.sidebar.write("•	git clone https://github.com/Rahul-s-007/clear-speak.git",
 st.sidebar.write("•	pip install -r requirements.txt", unsafe_allow_html=True)
 st.sidebar.write("•	streamlit run main.py", unsafe_allow_html=True)
 
+pyaudio_instance = pyaudio.PyAudio()
+
+
+print('\navailable devices:')
+
+for i in range(pyaudio_instance.get_device_count()):
+    dev = pyaudio_instance.get_device_info_by_index(i)
+    name = dev['name'].encode('utf-8')
+    print(i, name, dev['maxInputChannels'], dev['maxOutputChannels'])
+
+print('\ndefault input & output device:')
+print(pyaudio_instance.get_default_input_device_info())
+print(pyaudio_instance.get_default_output_device_info())
+st.write(pyaudio_instance.get_default_input_device_info())
+st.write(pyaudio_instance.get_default_output_device_info())
 col1_main,col2_main = st.columns(2)
 
 with col1_main:
